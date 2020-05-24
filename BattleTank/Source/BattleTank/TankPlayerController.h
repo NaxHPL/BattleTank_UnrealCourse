@@ -16,9 +16,10 @@ private:
 	void Tick(float DeltaSeconds) override;
 	void AimTowardsCrosshair();
 	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
+	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
 	
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, meta=(ClampMin = "0.0", ClampMax = "1.0"))
 	float CrosshairLocationX = 0.5;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, meta=(ClampMin = "0.0", ClampMax = "1.0"))
 	float CrosshairLocationY = 0.33333;
 };
