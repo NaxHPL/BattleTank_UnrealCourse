@@ -12,10 +12,11 @@ class BATTLETANK_API UTankAimingComponent : public UActorComponent
 public:	
 	UTankAimingComponent();
 	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
-	void AimAt(FVector HitLocation);
+	void AimAt(FVector HitLocation, float LaunchSpeed);
 	
 private:	
 	void BeginPlay() override;
 	void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	UPROPERTY()
 	UStaticMeshComponent* Barrel = nullptr;
 };

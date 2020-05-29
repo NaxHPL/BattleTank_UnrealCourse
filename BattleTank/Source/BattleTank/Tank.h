@@ -18,6 +18,7 @@ public:
 	void SetBarrelReference(UStaticMeshComponent* BarrelToSet) const;
 
 protected:
+	UPROPERTY()
 	UTankAimingComponent* TankAimingComponent = nullptr;
 	
 private:
@@ -25,4 +26,7 @@ private:
 	void Tick(float DeltaTime) override;
 	void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	void BeginPlay() override;
+
+	UPROPERTY(EditAnywhere, Category = Firing)
+	float LaunchSpeed = 4000.0;
 };
