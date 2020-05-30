@@ -14,9 +14,9 @@ public:
 	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 	
-private:	
-	void BeginPlay() override;
-	void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+private:
+	void MoveBarrelTowards(FVector AimDirection);
+	
 	UPROPERTY()
 	UStaticMeshComponent* Barrel = nullptr;
 };
