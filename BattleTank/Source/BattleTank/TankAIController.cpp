@@ -1,3 +1,4 @@
+#include "Tank.h"
 #include "TankAIController.h"
 
 void ATankAIController::BeginPlay()

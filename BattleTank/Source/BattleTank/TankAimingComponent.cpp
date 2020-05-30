@@ -1,4 +1,5 @@
 #include "Kismet/GameplayStatics.h"
+#include "TankBarrel.h"
 #include "TankAimingComponent.h"
 
 UTankAimingComponent::UTankAimingComponent()
@@ -6,7 +7,7 @@ UTankAimingComponent::UTankAimingComponent()
 	PrimaryComponentTick.bCanEverTick = true;
 }
 
-void UTankAimingComponent::SetBarrelReference(UStaticMeshComponent* BarrelToSet)
+void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
 	Barrel = BarrelToSet;
 }
@@ -45,4 +46,6 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	FRotator DeltaRotation = AimRotation - BarrelRotation;
 	
 	UE_LOG(LogTemp, Warning, TEXT("DeltaRotation: %s"), *DeltaRotation.ToString());
+
+	Barrel->Elevate(5.0);
 }

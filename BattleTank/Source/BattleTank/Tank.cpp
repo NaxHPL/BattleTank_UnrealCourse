@@ -1,3 +1,4 @@
+#include "TankAimingComponent.h"
 #include "Tank.h"
 
 ATank::ATank()
@@ -26,7 +27,7 @@ void ATank::AimAt(FVector HitLocation) const
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 
-void ATank::SetBarrelReference(UStaticMeshComponent* BarrelToSet) const
+void ATank::SetBarrelReference(UTankBarrel* BarrelToSet) const
 {
 	TankAimingComponent->SetBarrelReference(BarrelToSet);
 }
