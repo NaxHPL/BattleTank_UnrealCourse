@@ -23,7 +23,6 @@ protected:
 	
 private:
 	ATank();
-	void Tick(float DeltaTime) override;
 	void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	void BeginPlay() override;
 
