@@ -75,14 +75,15 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVec
 
 	FVector LineTraceStart = PlayerCameraManager->GetCameraLocation();
 	FVector LineTraceEnd = LineTraceStart + LookDirection * LineTraceRange;
+
+	bool bBlockingHitFound = GetWorld()->LineTraceSingleByChannel(
+		HitResult,
+		LineTraceStart,
+		LineTraceEnd,
+		ECC_Visibility
+	);
 	
-	if (GetWorld()->LineTraceSingleByChannel(
-			HitResult,
-			LineTraceStart,
-			LineTraceEnd,
-			ECC_Visibility
-		))
-	{
+	if (bBlockingHitFound) {
 		HitLocation = HitResult.Location;
 		return true;
 	}
